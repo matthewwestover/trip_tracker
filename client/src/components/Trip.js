@@ -1,6 +1,6 @@
 import React from 'react';
 import TripForm from './TripForm';
-import { Button, Icon, Card, } from 'semantic-ui-react';
+import { Button, Icon, Card, Header } from 'semantic-ui-react';
 
 class Trip extends React.Component {
   state = {editing: false, };
@@ -16,8 +16,8 @@ class Trip extends React.Component {
             <TripForm {...this.props } toggleEdit={this.toggleTripEdit} />
             :
             <Card.Content>
-              <Card.Header>{ this.props.name }</Card.Header>
-             <Card.Meta>{ this.props.start_date } - { this.props.end_date }</Card.Meta>
+              <Card.Header textAlign="center"><Header as="h1">{ this.props.name }</Header></Card.Header>
+             <Card.Meta textAlign="center">{ this.props.start_date } - { this.props.end_date }</Card.Meta>
             </Card.Content>
           }
         </Card.Content>
@@ -30,10 +30,10 @@ class Trip extends React.Component {
             <Icon name="pencil" /> New Location
           </Button>
           <Button.Group fluid>
-            <Button icon color="blue" onClick={this.toggleEdit}>
+            <Button icon color="blue" onClick={this.toggleTripEdit}>
               <Icon name="edit" /> Edit
             </Button>
-            <Button icon color="red" onClick={() => this.props.deleteMenu(this.props.id)}>
+            <Button icon color="red" onClick={() => this.props.deleteTrip(this.props.id)}>
               <Icon name="trash" /> Delete
             </Button>
           </Button.Group>

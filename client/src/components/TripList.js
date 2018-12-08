@@ -5,7 +5,7 @@ import { Grid, } from 'semantic-ui-react';
 const TripList = ({ trips, editTrip, deleteTrip }) => (
   <Grid columns={3} centered>
   {
-    trips.map ( trip => (
+    trips.map ( trip => 
       <Grid.Column width={5}>
         <Trip 
         key={trip.id}
@@ -14,7 +14,7 @@ const TripList = ({ trips, editTrip, deleteTrip }) => (
         deleteMenu={deleteTrip}
         />
       </Grid.Column>
-    ))
+    )
   }
   </Grid>
 );

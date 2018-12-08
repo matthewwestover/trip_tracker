@@ -7,20 +7,42 @@ import { Container, Divider } from 'semantic-ui-react';
 
 class App extends Component {
   state = { trips: [] }
-
+  
   componentDidMount () {
-    axios.get('/api/trips')
+    axios.get('api/trips/')
       .then( res => {
         this.setState({ trips: res.data, })
       })
   }
 
   addTrip = (name, start_date, end_date) => {
-
+    axios.post(`/api/trips`, { name, start_date, end_date })
+    .then( res => {
+      const { trips } = this.state;
+      this.setState({ trips: [res.data, ...trips] });
+    })
   }
 
-  updateTrip = () => {
+  // addItem = (id, name, price) => {
+  //   axios.post(`/api/menus/${id}/items`, { name, price })
+  //     .then(res => {
+  //       const { items } = this.state;
+  //       this.setState({
+  //         items: [...items, res.data]
+  //       })
+  //     })
+  // }
 
+  updateTrip = ({id, name, start_date, end_date}) => {
+    axios.put(`/api/trips/${id}`, { name, start_date, end_date })
+    .then( res => {
+      const trips  = this.state.trips.map( t => {
+        if (t.id === id)
+          return res.data
+        return t;
+      })
+      this.setState({ trips, })
+    })
   }
 
   deleteTrip = () => {

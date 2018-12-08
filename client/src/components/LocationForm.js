@@ -50,5 +50,5 @@ class LocationForm extends React.Component {
         )
     }
 }
-            
+
 export default LocationForm;

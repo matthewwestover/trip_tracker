@@ -10,9 +10,16 @@ class Api::TripsController < ApplicationController
     if trip.save
       render json: trip
     else
-      render json: {erros: menu.errors}
+      render json: {errors: trip.errors}
     end
   end
+
+  # menu = Menu.new(menus_params)
+  #   if menu.save
+  #     render json: menu
+  #   else
+  #     render json: { errors: menu.errors }
+  #   end
 
   def update 
     trip.update(trip_params)

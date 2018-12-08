@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, } from 'semantic-ui-react';
 
-
 class AddressForm extends React.Component {
         state = {
         street: '',

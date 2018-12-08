@@ -17,7 +17,7 @@ class Location extends React.Component {
         const location = { id, ...locationsData, };
         this.setState({ locations: [location, ...locations] })
     }
-
+    
     updateLocation = (locationData) => {
         const locations = this.state.locations.map(location => {
             if (location.id === locationData.id)
