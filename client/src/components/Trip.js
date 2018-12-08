@@ -10,7 +10,7 @@ class Trip extends React.Component {
   toggleTripEdit = () => this.setState({ editing: !this.state.editing })
 
   componentDidMount() {
-    let { id } = this.props.id
+    let { id } = this.props
     axios.get(`/api/trips/${id}/locations`)
       .then(res => {
         this.setState({ locations: res.data, editing: false, })
@@ -38,7 +38,7 @@ class Trip extends React.Component {
   }
 
   deleteLocation = (trip_id, id) => {
-    axios.delete(`/api/menus/${trip_id}/items/${id}`)
+    axios.delete(`/api/trips/${trip_id}/locations/${id}`)
       .then(res => {
         const { locations, } = this.state;
         this.setState({ locations: locations.filter(t => t.id !== id) })
