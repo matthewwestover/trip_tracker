@@ -4,6 +4,7 @@ import { Button, Icon, Card, } from 'semantic-ui-react';
 
 class Trip extends React.Component {
   state = {editing: false, };
+
   toggleTripEdit = () => this.setState({ editing: !this.state.editing })
 
   render () {
@@ -21,8 +22,8 @@ class Trip extends React.Component {
           }
         </Card.Content>
         <Card.Content>
-          Locations Name - Locations Date EDIT LOCATION BUTTON
-          Address Data EDIT ADDRESS BUTTON
+          Locations Name - Locations Date EDIT LOCATION BUTTON DELETE BUTTON
+            Address Data EDIT ADDRESS BUTTON DELETE BUTTON
         </Card.Content>
         <Card.Content extra>
           <Button.Group fluid>
