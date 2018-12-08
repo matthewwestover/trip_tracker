@@ -63,7 +63,7 @@ class TripForm extends React.Component {
                     value={end_date}
                     onChange={this.handleChange}
                 />
-                <Form.Button>Submit</Form.Button>
+                <Form.Button color="blue">Submit</Form.Button>
             </Form>
         )
     }

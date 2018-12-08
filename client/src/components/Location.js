@@ -61,11 +61,11 @@ class Location extends React.Component {
           </Card.Content>
         }
               <Button.Group size="tiny" floated="right">
-              <Button icon color="blue" onClick={this.toggleLocationEdit}>
-                  <Icon name="edit" /> Edit
+              <Button icon color="teal" onClick={this.toggleLocationEdit}>
+                  <Icon name="edit" />
                 </Button>
-                <Button icon color="red" onClick={() => this.props.deleteLocation(this.props.trip_id, this.props.id)}>
-                  <Icon name="trash" /> Delete
+                <Button icon color="purple" onClick={() => this.props.deleteLocation(this.props.trip_id, this.props.id)}>
+                  <Icon name="trash" /> 
                 </Button>
               </Button.Group>
               <br />
