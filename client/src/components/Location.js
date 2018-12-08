@@ -7,7 +7,7 @@ import { Card, Button, Icon } from 'semantic-ui-react'
 class Location extends React.Component {
   state = { addresses: [], editing: false, }
 
-  toggleAddressEdit = () => this.setState({editing: !this.state.editing})
+  toggleLocationEdit = () => this.setState({editing: !this.state.editing})
   
   componentDidMount() {
     let { id } = this.props

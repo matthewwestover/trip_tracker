@@ -48,10 +48,10 @@ class App extends Component {
     return (
       <Container className="contain" style={{ padding: "30px 0" }}>
         <h1><Icon name='paper plane outline' size='large' /> Team Awesome's Trip Planner</h1>
+        <TripList trips={this.state.trips} editTrip={this.updateTrip} deleteTrip={this.deleteTrip} />
+        <br />
         <TripForm addTrip={this.addTrip} />
         <Divider />
-        <br />
-        <TripList trips={this.state.trips} editTrip={this.updateTrip} deleteTrip={this.deleteTrip} />
       </Container>
     );
   }
