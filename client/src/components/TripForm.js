@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, } from 'semantic-ui-react';
+import { Form,  } from 'semantic-ui-react';
 
 class TripForm extends React.Component {
         state = {
@@ -16,8 +16,10 @@ class TripForm extends React.Component {
     }
 
     handleChange = (e) => {
-        this.setState({ name: e.target.value });
-    };
+        this.setState ({
+          [e.target.name]: e.target.value
+        })
+      }
 
     handleSubmit = (e) => {
         let { name, start_date, end_date } = this.state
@@ -31,29 +33,35 @@ class TripForm extends React.Component {
     };
 
     render() {
+        let {name, start_date, end_date} = this.state
         return(
+            
             <Form onSubmit={this.handleSubmit}>
                 <Form.Input
+                    name="name"
                     label="Trip Name"
                     placeholder="Add A Trip Name"
                     required
-                    value={this.state.name}
+                    value={name}
                     onChange={this.handleChange}
                 />                
                 <Form.Input
+                    name="start_date"
                     label="Trip Start"
                     placeholder="Add Start Date"
                     required
-                    value={this.state.name}
+                    value={start_date}
                     onChange={this.handleChange}
                 />                    
                 <Form.Input
+                    name="end_date"
                     label="Trip End"
                     placeholder="Add End Date"
                     required
-                    value={this.state.name}
+                    value={end_date}
                     onChange={this.handleChange}
                 />
+                <Form.Button>Submit</Form.Button>
             </Form>
         )
     }
