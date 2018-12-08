@@ -15,11 +15,11 @@ class Address extends React.Component {
                     State: {this.props.state}, Zip: {this.props.zip}
                 </Card.Meta>
                 <Button.Group size="tiny" floated="right">
-                    <Button icon color="blue" onClick={this.toggleAddressEdit}>
-                        <Icon name="edit" /> Edit
+                    <Button icon color="teal" onClick={this.toggleAddressEdit}>
+                        <Icon name="edit" />
                     </Button>
-                    <Button icon color="red" onClick={() => this.props.deleteAddress(this.props.trip_id, this.props.location_id, this.props.id)}>
-                        <Icon name="trash" /> Delete
+                    <Button icon color="purple" onClick={() => this.props.deleteAddress(this.props.trip_id, this.props.location_id, this.props.id)}>
+                        <Icon name="trash" />
                     </Button>
                 </Button.Group>
           </Card.Content>
