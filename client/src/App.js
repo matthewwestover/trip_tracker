@@ -9,7 +9,7 @@ class App extends Component {
   state = { trips: [] }
 
   componentDidMount () {
-    axios.get('/api/trips')
+    axios.get('api/trips/')
       .then( res => {
         this.setState({ trips: res.data, })
       })

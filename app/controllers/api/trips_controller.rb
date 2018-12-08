@@ -14,6 +14,13 @@ class Api::TripsController < ApplicationController
     end
   end
 
+  # menu = Menu.new(menus_params)
+  #   if menu.save
+  #     render json: menu
+  #   else
+  #     render json: { errors: menu.errors }
+  #   end
+
   def update 
     trip.update(trip_params)
     render json: trip
