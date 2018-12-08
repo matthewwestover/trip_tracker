@@ -35,8 +35,12 @@ class App extends Component {
     })
   }
 
-  deleteTrip = () => {
-
+  deleteTrip = (id) => {
+    axios.delete(`/api/trips/${id}`)
+    .then ( res => {
+      const { trips, } = this.state;
+      this.setState({ trips: trips.filter( t => t.id !== id) })
+    })
   }
 
 

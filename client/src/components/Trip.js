@@ -33,7 +33,7 @@ class Trip extends React.Component {
             <Button icon color="blue" onClick={this.toggleTripEdit}>
               <Icon name="edit" /> Edit
             </Button>
-            <Button icon color="red" onClick={ () => this.props.deleteTrip(this.props.id)}>
+            <Button icon color="red" onClick={() => this.props.deleteTrip(this.props.id)}>
               <Icon name="trash" /> Delete
             </Button>
           </Button.Group>
