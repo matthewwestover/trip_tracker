@@ -16,12 +16,22 @@ class App extends Component {
   }
 
   addTrip = (name, start_date, end_date) => {
-    axios.post('/api/', { name, start_date, end_date })
+    axios.post(`/api/trips`, { name, start_date, end_date })
     .then( res => {
       const { trips } = this.state;
       this.setState({ trips: [res.data, ...trips] });
     })
   }
+
+  // addItem = (id, name, price) => {
+  //   axios.post(`/api/menus/${id}/items`, { name, price })
+  //     .then(res => {
+  //       const { items } = this.state;
+  //       this.setState({
+  //         items: [...items, res.data]
+  //       })
+  //     })
+  // }
 
   updateTrip = ({id, name, start_date, end_date}) => {
     axios.put(`/api/trips/${id}`, { name, start_date, end_date })

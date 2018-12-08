@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form,  } from 'semantic-ui-react';
 
+
 class TripForm extends React.Component {
         state = {
         name: '',

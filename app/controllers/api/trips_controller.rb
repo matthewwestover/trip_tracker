@@ -10,7 +10,7 @@ class Api::TripsController < ApplicationController
     if trip.save
       render json: trip
     else
-      render json: {erros: menu.errors}
+      render json: {errors: trip.errors}
     end
   end
 
