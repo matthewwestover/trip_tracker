@@ -22,17 +22,17 @@ class TripForm extends React.Component {
         })
       }
 
-      handleSubmit = (e) => {
-        e.preventDefault();
-        if (this.props.id) {
-         this.props.editTrip({ id: this.props.id, ...this.state })
-         this.props.toggleEdit();
-        } else {
-         this.props.addTrip(this.state);
-        }
-        this.setState({ trip: "", start_date: "", end_date: ""});
-       };
-
+    handleSubmit = (e) => {
+    let { name, start_date, end_date} = this.state
+    e.preventDefault();
+    if (this.props.id) {
+        this.props.editTrip({ id: this.props.id, name, start_date, end_date })
+        this.props.toggleEdit();
+    } else {
+        this.props.addTrip(name, start_date, end_date);
+    }
+    this.setState({ trip: "", start_date: "", end_date: ""});
+    };
 
     render() {
         let {name, start_date, end_date} = this.state

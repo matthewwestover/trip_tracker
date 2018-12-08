@@ -24,15 +24,15 @@ class App extends Component {
   }
 
   updateTrip = ({id, name, start_date, end_date}) => {
-    axios.put(`/api/trips/${id}`, { name, start_date, end_date })
+    axios.put(`/api/trips/${id}`, { id, name, start_date, end_date })
     .then( res => {
-      const trips  = this.state.trips.map( t => {
-        if (t.id === id)
-          return res.data
-        return t;
-      })
-      this.setState({ trips, })
-    })
+      const trips = this.state.trips.map( trip => {
+      if (trip.id === id)
+        return res.data;
+      return trip;
+    });
+    this.setState({ trips, });
+  })
   }
 
   deleteTrip = (id) => {

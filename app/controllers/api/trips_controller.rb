@@ -13,8 +13,9 @@ class Api::TripsController < ApplicationController
       render json: {errors: trip.errors}
     end
   end
+  
   def update 
-    trip.update(trip_params)
+    @trip.update(trip_params)
     render json: trip
   end
 
