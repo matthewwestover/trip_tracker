@@ -55,7 +55,7 @@ class App extends Component {
         <TripForm addTrip={this.addTrip} />
         <Divider />
         <br />
-        <TripList />
+        <TripList trips={this.state.trips} editTrip={this.updateTrip} deleteTrip={this.deleteMenu} />
       </Container>
     );
   }
