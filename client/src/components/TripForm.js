@@ -8,6 +8,13 @@ class TripForm extends React.Component {
         end_date: ''
     };
 
+    componentDidMount() {
+        if (this.props.id) {
+            const { name, start_date, end_date } = this.props;
+            this.setState({ name, start_date, end_date });
+        }
+    }
+
     handleChange = (e) => {
         this.setState({ name: e.target.value });
     };
@@ -24,7 +31,6 @@ class TripForm extends React.Component {
     };
 
     render() {
-        let { name, start_date, end_date } 
         return(
             <Form onSubmit={this.handleSubmit}>
                 <Form.Input

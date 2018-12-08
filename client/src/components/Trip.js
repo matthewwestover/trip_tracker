@@ -1,5 +1,5 @@
 import React from 'react';
-import TripForm from './MenuForm';
+import TripForm from './TripForm';
 import { Button, Icon, Card, } from 'semantic-ui-react';
 
 class Trip extends React.Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TripForm from './components/TripForm';
 import TripList from './components/TripList';
+import axios from 'axios';
 import { Container, Divider } from 'semantic-ui-react';
 
 
@@ -15,7 +16,7 @@ class App extends Component {
   }
 
   addTrip = (name, start_date, end_date) => {
-    axois.post('/api/', { name, start_date, end_date })
+    axios.post('/api/', { name, start_date, end_date })
     .then( res => {
       const { trips } = this.state;
       this.setState({ trips: [res.data, ...trips] });
@@ -34,11 +35,11 @@ class App extends Component {
     })
   }
 
-  deleteTrip = () => {
+  deleteTrip = (id) => {
     axios.delete(`/api/trips/${id}`)
     .then( res => {
       const { trips } = this.state;
-      this.setState({menus: menus.filter(t => t.id !== id) })
+      this.setState({trips: trips.filter(t => t.id !== id) })
     })
   }
 

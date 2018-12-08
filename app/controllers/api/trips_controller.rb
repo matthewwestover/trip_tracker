@@ -29,7 +29,7 @@ class Api::TripsController < ApplicationController
       params.require(:trip).permit(:name, :start_date, :end_date)
     end
 
-      def set_trip  
+    def set_trip  
       @trip = Menu.find(params[:id])
     end
 end
