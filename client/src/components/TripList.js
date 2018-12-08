@@ -2,7 +2,7 @@ import React from 'react';
 import Trip from './Trip';
 import { Grid, } from 'semantic-ui-react';
 
-const TripList = ({ trips, editMenu, deleteMenu }) => (
+const TripList = ({ trips, editTrip, deleteTrip }) => (
   <Grid columns={3} centered>
   {
     trips.map ( trip => (
@@ -11,10 +11,12 @@ const TripList = ({ trips, editMenu, deleteMenu }) => (
         key={trip.id}
         {...trip}
         editTrip={editTrip}
-        deleteMenu={deleteMenu}
+        deleteMenu={deleteTrip}
         />
       </Grid.Column>
     ))
   }
   </Grid>
 );
+
+export default TripList;
