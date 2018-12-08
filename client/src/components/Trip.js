@@ -30,7 +30,7 @@ class Trip extends React.Component {
             <Icon name="pencil" /> New Location
           </Button>
           <Button.Group fluid>
-            <Button icon color="blue" onClick={this.toggleEdit}>
+            <Button icon color="blue" onClick={this.toggleTripEdit}>
               <Icon name="edit" /> Edit
             </Button>
             <Button icon color="red" onClick={() => this.props.deleteMenu(this.props.id)}>
