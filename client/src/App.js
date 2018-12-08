@@ -16,14 +16,12 @@ class App extends Component {
   }
 
   addTrip = (name, start_date, end_date) => {
-    axios.post(`/api/trips`, { name, start_date, end_date })
+    axios.post('/api/trips', { name, start_date, end_date })
     .then( res => {
       const { trips } = this.state;
       this.setState({ trips: [res.data, ...trips] });
     })
   }
-
-
 
   updateTrip = ({id, name, start_date, end_date}) => {
     axios.put(`/api/trips/${id}`, { name, start_date, end_date })
@@ -49,7 +47,7 @@ class App extends Component {
         <TripForm addTrip={this.addTrip} />
         <Divider />
         <br />
-        <TripList trips={this.state.trips} editTrip={this.updateTrip} deleteTrip={this.deleteMenu} />
+        <TripList trips={this.state.trips} editTrip={this.updateTrip} deleteTrip={this.deleteTrip} />
       </Container>
     );
   }

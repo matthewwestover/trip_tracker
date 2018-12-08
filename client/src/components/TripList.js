@@ -11,7 +11,7 @@ const TripList = ({ trips, editTrip, deleteTrip }) => (
         key={trip.id}
         {...trip}
         editTrip={editTrip}
-        deleteMenu={deleteTrip}
+        deleteTrip={deleteTrip}
         />
       </Grid.Column>
     )
