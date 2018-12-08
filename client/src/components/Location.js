@@ -38,11 +38,11 @@ class Location extends React.Component {
   })
   }
 
-  deleteLocation = (trip_id, id) => {
-    axios.delete(`/api/trips/${trip_id}/locations/${id}`)
+  deleteAddress = (trip_id, location_id, id) => {
+    axios.delete(`/api/trips/${trip_id}/locations/${location_id}/addresses/${id}`)
       .then(res => {
-        const { locations, } = this.state;
-        this.setState({ locations: locations.filter(t => t.id !== id) })
+        const { addresses, } = this.state;
+        this.setState({ addresses: addresses.filter(t => t.id !== id) })
       })
   }
 
@@ -68,8 +68,15 @@ class Location extends React.Component {
                   <Icon name="trash" /> Delete
                 </Button>
               </Button.Group>
+              <br />
+              <br />
             <Card.Meta>
-              Address
+              <Address 
+              // key={this.addresses.id}
+              addAddress={this.addAddress}
+              updateAddress={this.updateAddress}
+              deleteAddress={this.deleteAddress}
+              />
             </Card.Meta>
       </Card.Content>
     )
