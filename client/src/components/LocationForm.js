@@ -14,15 +14,26 @@ class LocationForm extends React.Component {
          });
     };
 
+    // handleSubmit = (e) => {
+    //     let { name, days, } = this.state
+    //     e.preventDefault();
+    //     this.props.addLocation(name, days );
+    //     this.setState({
+    //         name: '',
+    //         days: ''
+    //     })
+    // };
+
     handleSubmit = (e) => {
-        let { name, days, } = this.state
         e.preventDefault();
-        this.props.addLocation(name, days );
-        this.setState({
-            name: '',
-            days: ''
-        })
-    };
+        if (this.props.id) {
+         this.props.editLocation({ id: this.props.id, ...this.state })
+         this.props.toggleEdit();
+        } else {
+         this.props.addLocation(this.state);
+        }
+        this.setState({ name: "", days: "", trip_id: ""});
+       };
 
     render() {
         let { name, days } = this.state

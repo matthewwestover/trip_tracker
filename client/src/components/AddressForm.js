@@ -15,17 +15,28 @@ class AddressForm extends React.Component {
          });
     };
 
+    // handleSubmit = (e) => {
+    //     let { street, city, state, zip } = this.state
+    //     e.preventDefault();
+    //     this.props.addAddress(street, city, state, zip );
+    //     this.setState({
+    //         street: '',
+    //         city: '', 
+    //         state: '',
+    //         zip: ''
+    //     })
+    // };
+
     handleSubmit = (e) => {
-        let { street, city, state, zip } = this.state
         e.preventDefault();
-        this.props.addAddress(street, city, state, zip );
-        this.setState({
-            street: '',
-            city: '', 
-            state: '',
-            zip: ''
-        })
-    };
+        if (this.props.id) {
+         this.props.editAddress({ id: this.props.id, ...this.state })
+         this.props.toggleEdit();
+        } else {
+         this.props.addAddress(this.state);
+        }
+        this.setState({ street: "", city: "", state: "", zip:"", location_id:""});
+       };
 
     render() {
         let { street, city, state, zip } = this.state
