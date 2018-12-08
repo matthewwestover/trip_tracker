@@ -37,6 +37,6 @@ end
     end
 
     def set_trip 
-      @trip = Trip.find(params(:trip_id))
+      @trip = Trip.find(params(:id))
     end
 end

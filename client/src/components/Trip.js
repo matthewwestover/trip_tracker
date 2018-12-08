@@ -1,11 +1,49 @@
 import React from 'react';
 import TripForm from './TripForm';
+import Location from './Location';
+import axios from 'axios';
 import { Button, Icon, Card, Header } from 'semantic-ui-react';
 
 class Trip extends React.Component {
-  state = {editing: false, };
+  state = { locations: [], editing: false, };
 
   toggleTripEdit = () => this.setState({ editing: !this.state.editing })
+
+  componentDidMount() {
+    let { id } = this.props.id
+    axios.get(`/api/trips/${id}/locations`)
+      .then(res => {
+        this.setState({ locations: res.data, editing: false, })
+      })
+  }
+
+  addLocation = (id, name, days) => {
+    axios.post(`/api/trips/${id}/locations`, { name, days })
+      .then( res => {
+        const { locations } = this.state;
+        this.setState({ locations: [...locations, res.data], editing:false, })
+      })
+  }
+
+  updateLocation = ({id, trip_id, name, days}) => {
+    axios.put(`/api/trips/${trip_id}/locations/${id}`, { id, trip_id, name, days })
+    .then( res => {
+      const locations = this.state.locations.map( location => {
+      if (location.id === id)
+        return res.data;
+      return location;
+    });
+    this.setState({ locations, editing: false, });
+  })
+  }
+
+  deleteLocation = (trip_id, id) => {
+    axios.delete(`/api/menus/${trip_id}/items/${id}`)
+      .then(res => {
+        const { locations, } = this.state;
+        this.setState({ locations: locations.filter(t => t.id !== id) })
+      })
+  }
 
   render () {
     return (
@@ -22,8 +60,17 @@ class Trip extends React.Component {
           }
         </Card.Content>
         <Card.Content>
-          Locations Name - Locations Date EDIT LOCATION BUTTON DELETE BUTTON
-            Address Data EDIT ADDRESS BUTTON DELETE BUTTON
+          {
+            this.state.locations.map ( location =>
+              <Location
+              key={location.id}
+              {...location}
+              addLocation={this.addLocation} 
+              updateLocation={this.updateLocation} 
+              deleteLocation={this.deleteLocation} 
+              />
+              )
+          }
         </Card.Content>
         <Card.Content extra>
           <Button icon color="green" fluid>

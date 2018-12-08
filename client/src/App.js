@@ -31,7 +31,7 @@ class App extends Component {
         return res.data;
       return trip;
     });
-    this.setState({ trips, });
+    this.setState({ trips, editing: false, });
   })
   }
 
