@@ -3,7 +3,7 @@ import TripForm from './components/TripForm';
 import TripList from './components/TripList';
 import axios from 'axios';
 import { Container, Divider } from 'semantic-ui-react';
-
+import "./page.css";
 
 class App extends Component {
   state = { trips: [] }
@@ -46,7 +46,7 @@ class App extends Component {
 
   render() {
     return (
-      <Container style={{ padding: "30px 0" }}>
+      <Container raised className="contain" style={{ padding: "30px 0" }}>
         <h1>Team Awesome's Trip Planner</h1>
         <TripForm addTrip={this.addTrip} />
         <Divider />
