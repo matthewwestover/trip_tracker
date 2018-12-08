@@ -1,5 +1,5 @@
 class Api::TripsController < ApplicationController
-  belongs_to :set_trip, only: [:update, :destroy]
+  before_action :set_trip, only: [:update, :destroy]
 
   def index 
     render json: Trip.all

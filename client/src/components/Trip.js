@@ -26,10 +26,10 @@ class Trip extends React.Component {
             Address Data EDIT ADDRESS BUTTON DELETE BUTTON
         </Card.Content>
         <Card.Content extra>
+          <Button icon color="green" fluid>
+            <Icon name="pencil" /> New Location
+          </Button>
           <Button.Group fluid>
-            <Button icon color="green">
-              <Icon name="pencil" /> New Location
-            </Button>
             <Button icon color="blue" onClick={this.toggleEdit}>
               <Icon name="edit" /> Edit
             </Button>
