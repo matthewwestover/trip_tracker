@@ -73,15 +73,16 @@ class Trip extends React.Component {
           }
         </Card.Content>
         <Card.Content extra>
-          <Button icon color="green" fluid>
-            <Icon name="pencil" /> New Location
-          </Button>
+          
           <Button.Group fluid>
-            <Button icon color="blue" onClick={this.toggleTripEdit}>
-              <Icon name="edit" /> Edit
+            <Button icon color="blue">
+              <Icon name='paper plane outline' />
             </Button>
-            <Button icon color="red" onClick={() => this.props.deleteTrip(this.props.id)}>
-              <Icon name="trash" /> Delete
+            <Button icon color="teal" onClick={this.toggleTripEdit}>
+              <Icon name="edit" /> 
+            </Button>
+            <Button icon color="purple" onClick={() => this.props.deleteTrip(this.props.id)}>
+              <Icon name="trash" /> 
             </Button>
           </Button.Group>
         </Card.Content>
