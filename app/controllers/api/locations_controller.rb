@@ -11,7 +11,7 @@ class Api::LocationsController < ApplicationController
     if location.save
       render json: location
     else
-      render json: {errors: item.errors}
+      render json: {errors: location.errors}
   end
 end
 

@@ -28,7 +28,7 @@ end
 private
 
 def address_params
-  params.require(:item).permit(:street, :city, :state, :zip, :location_id)
+  params.require(:location).permit(:street, :city, :state, :zip, :location_id)
 end
 
 def set_address
