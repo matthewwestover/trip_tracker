@@ -23,15 +23,7 @@ class App extends Component {
     })
   }
 
-  // addItem = (id, name, price) => {
-  //   axios.post(`/api/menus/${id}/items`, { name, price })
-  //     .then(res => {
-  //       const { items } = this.state;
-  //       this.setState({
-  //         items: [...items, res.data]
-  //       })
-  //     })
-  // }
+
 
   updateTrip = ({id, name, start_date, end_date}) => {
     axios.put(`/api/trips/${id}`, { name, start_date, end_date })
